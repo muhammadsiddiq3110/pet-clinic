@@ -3,6 +3,16 @@ package uz.fargona.model;
 import java.time.LocalDate;
 
 public class Pet {
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     private PetType petType;
     private Owner owner;
     private LocalDate birthDay;
