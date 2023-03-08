@@ -1,10 +1,11 @@
 package uz.fargona.service.map;
 
+import org.springframework.stereotype.Service;
 import uz.fargona.model.Pet;
 import uz.fargona.service.PetService;
 
 import java.util.Set;
-
+@Service
 public class PetServiceMap extends AbstractMapService<Pet,Long> implements PetService {
     @Override
     public void delete(Pet object) {
