@@ -18,7 +18,7 @@ public class VetController {
     @RequestMapping({"", "/", "/index", "/1.html"})
     public String listVets(Model model) {
         var list = vetService.findAll().stream()
-                .sorted((a, b) -> (a.getId() > b.getId()) ? 1 : 0);
+                .toList();
         model.addAttribute("vets", list);
         return "vet/index";
     }

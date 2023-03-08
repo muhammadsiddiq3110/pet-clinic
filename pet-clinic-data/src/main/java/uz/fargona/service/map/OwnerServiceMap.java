@@ -2,12 +2,14 @@ package uz.fargona.service.map;
 
 import lombok.Lombok;
 import org.springframework.stereotype.Service;
+
 import uz.fargona.model.Owner;
 import uz.fargona.service.OwnerService;
 
 import java.util.Set;
 @Service
-public class OwnerServiceMap extends AbstractMapService<Owner, Long > implements OwnerService {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
@@ -20,12 +22,12 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long > implements
 
     @Override
     public void delete(Owner object) {
-    super.delete(object);
+        super.delete(object);
     }
 
     @Override
     public Owner save(Owner object) {
-        return super.save(object.getId(), object);
+        return super.save(object);
     }
 
     @Override
@@ -36,9 +38,9 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long > implements
     @Override
     public Owner findByLastName(String lastName) {
         return map.entrySet().stream()
-                .filter(a->a.getValue().getLastName().equals(lastName))
+                .filter(a -> a.getValue().getLastName().equals(lastName))
                 .findFirst()
-                .map(a->a.getValue())
+                .map(a -> a.getValue())
                 .orElse(null);
     }
 }

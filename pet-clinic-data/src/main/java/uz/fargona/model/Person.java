@@ -1,15 +1,6 @@
 package uz.fargona.model;
 
-public class Person {
-    private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+public class Person extends BaseEntity{
 
     private String firstName;
     private String lastName;
