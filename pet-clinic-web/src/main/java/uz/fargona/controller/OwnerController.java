@@ -16,7 +16,7 @@ public class OwnerController {
         this.ownerService = ownerService;
     }
 
-    @GetMapping({"", "/", "index", "index.html"})
+    @GetMapping({"", "/", "index", "1.html"})
     public String listOwners(Model model) {
         var list=ownerService.findAll().stream()
                         .sorted((a,b)->(a.getId()>b.getId())?1:0);
