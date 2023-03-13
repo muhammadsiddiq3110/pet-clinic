@@ -1,10 +1,12 @@
 package uz.fargona.service.map;
 
+import org.springframework.stereotype.Service;
 import uz.fargona.model.Speciality;
 import uz.fargona.service.SpecialityService;
 
 import java.util.Set;
 
+    @Service
 public class SpeacialityServiceMap extends AbstractMapService<Speciality, Long> implements SpecialityService {
     @Override
     public Set<Speciality> findAll() {
