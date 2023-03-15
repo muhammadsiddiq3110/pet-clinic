@@ -22,5 +22,8 @@ public class OwnerController {
                         .sorted((a,b)->(a.getId()>b.getId())?1:0);
         model.addAttribute("owners",list);
         return "owner/index";
+    } @RequestMapping("/find")
+    public String findOwners(){
+        return "notimplemented";
     }
 }
