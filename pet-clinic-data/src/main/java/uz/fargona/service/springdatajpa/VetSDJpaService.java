@@ -1,5 +1,7 @@
 package uz.fargona.service.springdatajpa;
 
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 import uz.fargona.model.Vet;
 import uz.fargona.repository.VetRepository;
 import uz.fargona.service.VetService;
@@ -7,6 +9,8 @@ import uz.fargona.service.VetService;
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
+@Profile("springdatajpa")
 public class VetSDJpaService implements VetService {
 
     private final VetRepository vetRepository;

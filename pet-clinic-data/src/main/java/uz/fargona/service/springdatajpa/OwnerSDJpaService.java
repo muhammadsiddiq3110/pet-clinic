@@ -1,5 +1,6 @@
 package uz.fargona.service.springdatajpa;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import uz.fargona.model.Owner;
 import uz.fargona.repository.OwnerRepository;
@@ -8,6 +9,7 @@ import uz.fargona.service.OwnerService;
 import java.util.HashSet;
 import java.util.Set;
 @Service
+@Profile("springdatajpa")
 public class OwnerSDJpaService implements OwnerService {
     private final OwnerRepository ownerRepository;
 
