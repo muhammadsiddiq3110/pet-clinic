@@ -1,10 +1,20 @@
 package uz.fargona.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
-public class Visit extends BaseEntity{
+@Entity
+@Table(name = "visit")
+public class Visit extends BaseEntity {
+
+    @Column(name = "local_date")
     private LocalDate localDate;
+
+    @Column(name = "description")
     private String description;
+    @ManyToOne
+    @JoinColumn(name ="pet_id")
     private Pet pet;
 
     public LocalDate getLocalDate() {

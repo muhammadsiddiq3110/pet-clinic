@@ -1,14 +1,22 @@
 package uz.fargona.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
 import java.util.HashSet;
 import java.util.Set;
-
+@Entity
+@Table(name = "owner")
 public class Owner extends Person{
 
+    @Column(name = "address")
     private String address;
     private String city;
     private String telephone;
 
+    @OneToMany
     private Set<Pet> pets=new HashSet<>();
 
     public Set<Pet> getPets() {
