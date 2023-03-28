@@ -3,11 +3,15 @@ package uz.fargona.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.*;
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 
 @Entity
 @Table(name = "speciality")
-@Data
 public class Speciality extends BaseEntity{
 
     @Column(name = "description")

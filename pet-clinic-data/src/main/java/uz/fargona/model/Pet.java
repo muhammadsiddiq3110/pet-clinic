@@ -1,57 +1,45 @@
 package uz.fargona.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
+
+
+@Getter
+@Setter
+@NoArgsConstructor
 
 @Entity
 @Table(name = "pets")
 
-@Data
 public class Pet extends BaseEntity {
 
     @Column(name = "name")
     private String name;
+
     @ManyToOne
     @JoinColumn(name = "typ_id")
     private PetType petType;
+
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private Owner owner;
+
     @Column(name = "birth_date")
-    private LocalDate birthDay;
+    private LocalDate birthDate;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+    private Set<Visit> visits = new HashSet<>();
 
-//    public PetType getPetType() {
-//        return petType;
-//    }
-//
-//    public void setPetType(PetType petType) {
-//        this.petType = petType;
-//    }
-//
-//    public Owner getOwner() {
-//        return owner;
-//    }
-//
-//    public void setOwner(Owner owner) {
-//        this.owner = owner;
-//    }
-//
-//    public LocalDate getBirthDay() {
-//        return birthDay;
-//    }
-//
-//    public void setBirthDay(LocalDate birthDay) {
-//        this.birthDay = birthDay;
-//    }
-//
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
+    public Pet(Long id, String name, PetType petType, Owner owner, LocalDate birthDate) {
+        super(id);
+        this.name = name;
+        this.petType = petType;
+        this.owner = owner;
+        this.birthDate = birthDate;
+    }
 }

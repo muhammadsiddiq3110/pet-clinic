@@ -1,14 +1,19 @@
 package uz.fargona.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDate;
 
+@Setter
+@Getter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+
 @Entity
 @Table(name = "visit")
-
-@Data
 public class Visit extends BaseEntity {
 
     @Column(name = "local_date")

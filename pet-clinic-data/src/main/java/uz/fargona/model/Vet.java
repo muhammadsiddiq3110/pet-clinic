@@ -1,14 +1,18 @@
 package uz.fargona.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+
 @Entity
 @Table(name = "vets")
-@Data
 public class Vet extends Person{
 
     @ManyToMany
