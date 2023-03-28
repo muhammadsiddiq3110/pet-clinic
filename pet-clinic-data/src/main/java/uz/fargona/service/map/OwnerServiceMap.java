@@ -8,6 +8,7 @@ import uz.fargona.service.OwnerService;
 import uz.fargona.service.PetService;
 import uz.fargona.service.PetTypeService;
 
+import java.util.List;
 import java.util.Set;
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
@@ -70,5 +71,13 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
                 .findFirst()
                 .map(a -> a.getValue())
                 .orElse(null);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+   return      map.entrySet().stream()
+                .filter(a->a.getValue().getLastName().toLowerCase().contains(lastName.replaceAll("%","").toLowerCase()))
+                .map(a->a.getValue())
+                .toList();
     }
 }

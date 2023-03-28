@@ -7,6 +7,7 @@ import uz.fargona.repository.OwnerRepository;
 import uz.fargona.service.OwnerService;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 @Service
 @Profile("springdatajpa")
@@ -49,5 +50,12 @@ public class OwnerSDJpaService implements OwnerService {
     @Override
     public Owner findByLastName(String lastName) {
         return ownerRepository.findByLastName(lastName);
+
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return null;
     }
 }
+
